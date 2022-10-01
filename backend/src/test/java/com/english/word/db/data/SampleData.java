@@ -26,6 +26,7 @@ public class SampleData {
 
         Sheet sheet = workbook.getSheetAt(0);
         Iterator<Row> rowIterator = sheet.iterator();
+        rowIterator.next();
         int idx = 0;
         while (rowIterator.hasNext()) {
             Row row = rowIterator.next();
@@ -39,7 +40,7 @@ public class SampleData {
             word.setEnName(cell.getStringCellValue());
 
             cell = cellIterator.next();
-            word.setUnit(cell.getStringCellValue());
+            word.setUnit(Integer.parseInt(cell.getStringCellValue()));
 
             wordRepository.save(word);
         }
