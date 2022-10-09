@@ -12,4 +12,6 @@ import java.util.List;
 public interface WordRepository extends JpaRepository<Word, WordId> {
     @Query(value = "select * from Word where unit between ?1 and ?2 order by rand() limit ?3", nativeQuery = true)
     List<Word> findTop20WordByUnit(String l, String r, int wordCnt);
+
+    List<Word> findWordByKrNameContains(String krName);
 }
