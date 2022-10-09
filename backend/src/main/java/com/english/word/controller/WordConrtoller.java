@@ -22,4 +22,9 @@ public class WordConrtoller {
     public ResponseEntity<List<WordResDto>> getTodayWords(@PathVariable("startUnit") String startUnit, @PathVariable("endUnit") String endUnit, @PathVariable("wordCnt") int wordCnt) {
         return new ResponseEntity<>(wordService.getTodayWords(startUnit, endUnit, wordCnt), HttpStatus.OK);
     }
+
+    @GetMapping("/match/{krName}")
+    public ResponseEntity<List<WordResDto>> findEnName(@PathVariable("krName") String krName) {
+        return new ResponseEntity<>(wordService.findEnName(krName), HttpStatus.OK);
+    }
 }

@@ -29,4 +29,9 @@ public class WordServiceImpl implements WordService {
 
         return wordResDtoList;
     }
+
+    @Override
+    public List<WordResDto> findEnName(String krName) {
+        return wordRepository.findWordByKrNameContains(krName).stream().map(word -> WordResDto.of(word)).collect(Collectors.toList());
+    }
 }
