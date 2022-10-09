@@ -2,9 +2,7 @@ package com.english.word.db.data;
 
 import com.english.word.db.entity.Word;
 import com.english.word.db.repository.WordRepository;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,18 +14,19 @@ import java.util.Iterator;
 
 @SpringBootTest
 public class SampleData {
+    private final String filePath = "C:\\ysys\\EnglishWordsTest\\backend\\src\\main\\resources\\data\\words.xlsx";
+
     @Autowired
     WordRepository wordRepository;
 
     @Test
     void readExcel() throws Exception {
-        FileInputStream fis = new FileInputStream(new File("C:\\ysys\\EnglishWordsTest\\backend\\src\\main\\resources\\data\\words.xlsx"));
+        FileInputStream fis = new FileInputStream(new File(filePath));
         XSSFWorkbook workbook = new XSSFWorkbook(fis);
 
         Sheet sheet = workbook.getSheetAt(0);
         Iterator<Row> rowIterator = sheet.iterator();
         rowIterator.next();
-        int idx = 0;
         while (rowIterator.hasNext()) {
             Row row = rowIterator.next();
 

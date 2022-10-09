@@ -14,5 +14,6 @@ public class Word {
     String krName;
     @Id
     String enName;
+    @Id
     int unit;
 }

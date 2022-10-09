@@ -12,4 +12,5 @@ import java.io.Serializable;
 public class WordId implements Serializable {
     String krName;
     String enName;
+    int unit;
 }
