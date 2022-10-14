@@ -15,7 +15,7 @@ public class WordServiceImpl implements WordService {
     private final WordRepository wordRepository;
 
     @Override
-    public List<WordResDto> getTodayWords(String startUnit, String endUnit, int wordCnt) {
+    public List<WordResDto> getTodayWords(int startUnit, int endUnit, int wordCnt) {
         List<WordResDto> wordResDtoList = wordRepository.findTop20WordByUnit(startUnit, endUnit, wordCnt).stream()
                 .map(word -> WordResDto.of(word)).collect(Collectors.toList());
 

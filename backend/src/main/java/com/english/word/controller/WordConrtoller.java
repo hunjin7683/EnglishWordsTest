@@ -20,7 +20,7 @@ public class WordConrtoller {
     private final WordService wordService;
 
     @GetMapping("/today/{startUnit}/{endUnit}/{wordCnt}")
-    public ResponseEntity<List<WordResDto>> getTodayWords(@PathVariable("startUnit") String startUnit, @PathVariable("endUnit") String endUnit, @PathVariable("wordCnt") int wordCnt) {
+    public ResponseEntity<List<WordResDto>> getTodayWords(@PathVariable("startUnit") int startUnit, @PathVariable("endUnit") int endUnit, @PathVariable("wordCnt") int wordCnt) {
         return new ResponseEntity<>(wordService.getTodayWords(startUnit, endUnit, wordCnt), HttpStatus.OK);
     }
 
