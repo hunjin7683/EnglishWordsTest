@@ -2,6 +2,7 @@ package com.english.word.service;
 
 import com.english.word.db.repository.WordRepository;
 import com.english.word.response.WordResDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,12 +10,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class WordServiceImpl implements WordService {
-    @Autowired
-    WordRepository wordRepository;
+    private final WordRepository wordRepository;
 
     @Override
-    public List<WordResDto> getTodayWords(String startUnit, String endUnit, int wordCnt) {
+    public List<WordResDto> getTodayWords(int startUnit, int endUnit, int wordCnt) {
         List<WordResDto> wordResDtoList = wordRepository.findTop20WordByUnit(startUnit, endUnit, wordCnt).stream()
                 .map(word -> WordResDto.of(word)).collect(Collectors.toList());
 
