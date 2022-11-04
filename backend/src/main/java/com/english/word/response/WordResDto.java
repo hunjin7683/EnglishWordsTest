@@ -10,6 +10,7 @@ public class WordResDto {
     String krName;
     String enName;
     int unit;
+    int page;
 
     public static WordResDto of(Word word) {
         if (word == null)
@@ -19,6 +20,7 @@ public class WordResDto {
                 .krName(word.getKrName())
                 .enName(word.getEnName())
                 .unit(word.getUnit())
+                .page(word.getPage())
                 .build();
     }
 }
