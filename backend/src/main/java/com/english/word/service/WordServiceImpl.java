@@ -3,7 +3,6 @@ package com.english.word.service;
 import com.english.word.db.repository.WordRepository;
 import com.english.word.response.WordResDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
