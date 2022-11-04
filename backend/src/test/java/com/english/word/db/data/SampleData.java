@@ -30,21 +30,20 @@ public class SampleData {
         while (rowIterator.hasNext()) {
             Row row = rowIterator.next();
 
-            Word word = new Word();
             Iterator<Cell> cellIterator = row.cellIterator();
             Cell cell = cellIterator.next();
-            word.setKrName(cell.getStringCellValue());
+            String krName = cell.getStringCellValue();
 
             cell = cellIterator.next();
-            word.setEnName(cell.getStringCellValue());
+            String enName = cell.getStringCellValue();
 
             cell = cellIterator.next();
-            word.setUnit((int) cell.getNumericCellValue());
+            int unit = (int) cell.getNumericCellValue();
 
             cell = cellIterator.next();
-            word.setPage((int) cell.getNumericCellValue());
+            int page = (int) cell.getNumericCellValue();
 
-            wordRepository.save(word);
+            wordRepository.save(new Word(krName, enName, unit, page));
         }
     }
 }

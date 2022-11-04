@@ -1,6 +1,6 @@
 package com.english.word.controller;
 
-import com.english.word.response.WordResDto;
+import com.english.word.response.WordGetRes;
 import com.english.word.service.WordService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,17 +19,17 @@ public class WordConrtoller {
     private final WordService wordService;
 
     @GetMapping("/today/unit/{startUnit}/{endUnit}/{wordCnt}")
-    public ResponseEntity<List<WordResDto>> getTodayWordsByUnit(@PathVariable("startUnit") int startUnit, @PathVariable("endUnit") int endUnit, @PathVariable("wordCnt") int wordCnt) {
+    public ResponseEntity<List<WordGetRes>> getTodayWordsByUnit(@PathVariable("startUnit") int startUnit, @PathVariable("endUnit") int endUnit, @PathVariable("wordCnt") int wordCnt) {
         return new ResponseEntity<>(wordService.getTodayWordsByUnit(startUnit, endUnit, wordCnt), HttpStatus.OK);
     }
 
     @GetMapping("/today/page/{startPage}/{endPage}/{wordCnt}")
-    public ResponseEntity<List<WordResDto>> getTodayWordsByPage(@PathVariable("startPage") int startPage, @PathVariable("endPage") int endPage, @PathVariable("wordCnt") int wordCnt) {
+    public ResponseEntity<List<WordGetRes>> getTodayWordsByPage(@PathVariable("startPage") int startPage, @PathVariable("endPage") int endPage, @PathVariable("wordCnt") int wordCnt) {
         return new ResponseEntity<>(wordService.getTodayWordsByPage(startPage, endPage, wordCnt), HttpStatus.OK);
     }
 
     @GetMapping("/match/{krName}")
-    public ResponseEntity<List<WordResDto>> findEnName(@PathVariable("krName") String krName) {
+    public ResponseEntity<List<WordGetRes>> findEnName(@PathVariable("krName") String krName) {
         return new ResponseEntity<>(wordService.findEnName(krName), HttpStatus.OK);
     }
 }
