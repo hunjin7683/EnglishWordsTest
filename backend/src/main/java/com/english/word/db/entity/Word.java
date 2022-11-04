@@ -16,4 +16,5 @@ public class Word {
     String enName;
     @Id
     int unit;
+    int page;
 }
