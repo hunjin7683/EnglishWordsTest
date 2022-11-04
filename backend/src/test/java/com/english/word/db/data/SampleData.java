@@ -39,7 +39,10 @@ public class SampleData {
             word.setEnName(cell.getStringCellValue());
 
             cell = cellIterator.next();
-            word.setUnit(Integer.parseInt(cell.getStringCellValue()));
+            word.setUnit((int) cell.getNumericCellValue());
+
+            cell = cellIterator.next();
+            word.setPage((int) cell.getNumericCellValue());
 
             wordRepository.save(word);
         }
