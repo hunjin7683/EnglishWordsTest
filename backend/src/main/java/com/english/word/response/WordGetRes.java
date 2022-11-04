@@ -1,6 +1,5 @@
 package com.english.word.response;
 
-
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
