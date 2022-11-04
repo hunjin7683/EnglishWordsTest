@@ -1,11 +1,11 @@
 package com.english.word.service;
 
-import com.english.word.response.WordResDto;
+import com.english.word.response.WordGetRes;
 
 import java.util.List;
 
 public interface WordService {
-    public List<WordResDto> getTodayWordsByUnit(int startUnit, int endUnit, int wordCnt);
-    public List<WordResDto> getTodayWordsByPage(int startUnit, int endUnit, int wordCnt);
-    public List<WordResDto> findEnName(String krName);
+    public List<WordGetRes> getTodayWordsByUnit(int startUnit, int endUnit, int wordCnt);
+    public List<WordGetRes> getTodayWordsByPage(int startPage, int endPage, int wordCnt);
+    public List<WordGetRes> findEnName(String krName);
 }
